@@ -18,7 +18,7 @@
   "licenses": "MIT",
   "config": {
     "port": 8002,
-    "entry": "./src/lazyimg.js"
+    "entry": "./src/index.js"
   },
   "scripts": {
     "gh-pages": "rc-tools run gh-pages",
