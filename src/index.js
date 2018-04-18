@@ -115,7 +115,6 @@ function withLazyimg (config = {}) {
 
     // check
     check () {
-      console.log('check---<lazyimg')
       let el = this.el
       let currentImg = this.currentImg
       let { src, loaded, once, settings, proxyImg } = currentImg
@@ -125,7 +124,6 @@ function withLazyimg (config = {}) {
       }
       // process
       if (settings.force || (Util.inTheViewport(el, settings) && !loaded && once)) {
-        console.log('check---loading')
         // execute once
         currentImg.once = false
         // appear hook
@@ -151,7 +149,6 @@ function withLazyimg (config = {}) {
           this.setState({
             isFailed: true
           })
-          console.error(error)
         }
 
         // proxy img
@@ -199,11 +196,9 @@ function withLazyimg (config = {}) {
       currentImg.onCb = onCb
       currentImg.detach = detach
       currentImg.isDetach = isDetach
-      console.log('---> detach <---')
     }
     // init
     init () {
-      console.log('init<-----lazyimg')
       // initialization
       this.check()
       let el = this.el
@@ -239,15 +234,12 @@ function withLazyimg (config = {}) {
     }
 
     componentDidMount () {
-      console.log('componentDidMount-->lazyimg: %o', this.el)
       this.init()
     }
     shouldComponentUpdate (nextProps) {
-      console.log('shouldComponentUpdate---->lazyimg: %o', this.el)
       // debugger;
       if (this.props.src !== nextProps.src) {
         if (this.filterLoadedImages(nextProps)) {
-          console.log('shouldComponentUpdate---->lazyimg')
           return false
         }
         this.initState(nextProps)
@@ -295,7 +287,6 @@ function withLazyimg (config = {}) {
           // execute effect animation
           if (!isAnimation) {
             currentImg.isAnimation = true
-            console.log('isAnimation:  ', currentImg)
             window.Velocity(animateEl, settings.js_effect, {
               duration: 600,
               complete: el => {
