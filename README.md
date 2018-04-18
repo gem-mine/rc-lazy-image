@@ -1,75 +1,30 @@
-## JS组件开发说明
+# rc-qrcode
+---
 
-> 离线应用与颗粒组件
+二维码组件，用于绘制二维码
 
-## 介绍
+## Usage
 
-### 什么是离线应用？
-
-- 将 H5 应用中的 HTML、JS、CSS、图片、字体、等静态资源缓存在手机上的 H5 应用，就称之为离线应用。
-- 离线应用不会缓存数据，如果开发人员要做数据的缓存，要自己实现（建议把数据存存储在 [Bridge.require("sdp.localstorage")](http://reference.sdp.nd/appfactory/userguide/light/js-sdk/dao.html) 里,因为 HTML 的 localstorage 有空间限制）
-
-### 离线应用的优点是什么？
-
-- 减少请求远程资源，加速页面加载。
-- 减少流量
-
-### 什么是颗粒组件？
-
-- 颗粒组件是离线应用的一种开发方式，他继承离线应用的所有特征和优点。
-- 颗粒组件是比业务组件粒度更小的一种 H5 组件，它由一个布局页（page）和多个颗粒（widget）组合成一个 HTML 页面，相比之前的业务组件有更好的灵活度。
-
-
-
-## 项目说明
-
-本项目包含了离线应用和颗粒组件两个模板，方法大家借鉴使用。
-
-### 目录说明
-
-```
-./
-├── cli/                       // 命令脚本
-├── config/                    // 离线应用配置参数
-├── doc/                       // 项目使用到技术文档
-├── mock/                      // 存放 mock 数据
-├── src/                       // 离线应用的项目代码
-├── test/                      // 测试用例
-├── develop/                   // 开发环境下的颗粒打包程序
-├── page-common/               // 颗粒组件的 `布局页`（page）
-├── widget-1/                  // 颗粒组件的 `颗粒`（widget）
-├── i18n.js                    // 开发环境下颗粒组件的 i18n 文件加载代码
-└── webpack.config.babel.js    // 离线应用的 webpack 配置文件
+```js
+import Qrcode from '@sdp.nd/rc-qrcode';
+import React from 'react';
+import ReactDOM from 'react-dom';
+ReactDOM.render(<Qrcode />, container);
 ```
 
+## API
 
-### 颗粒组件常用命令
+| 参数 | 说明 | 类型 | 默认值 |
+|-|-|-|-|
+| size         | 必选参数,二维码大小 | Number | 256 |
+| text         | 必选参数,要编码的字符串 | String | '' |
+| correctLevel | 纠错级别，可取0、1、2、3，数字越大说明所需纠错级别越大 | Number | 3 |
+| background   | 背景色 | String | '#fff' |
+| foreground   | 前景色 | String |'#000' |
+| image        | 中间图片的url，只支持配置正方形图片 | String | '' |
+| imageSize    | 中间图片的大小 | Number | 3 |
 
-```bash
-# 开启颗粒服务器，地址为 ：http://localhost:3000/ 或 http://localhost:3100/
-npm run dev:widget
 
-```
+## License
 
-### 离线常用命令
-
-```bash
-# start a mocking server at localhost:3001
-npm run mock
-
-# serve with hot reload at localhost:3000
-npm run dev
-
-# eslint, stylelint, unit and e2e test
-npm test
-
-# compile files for production with minification
-npm run compile
-
-# test, clean, and compile
-npm run build
-
-# serve dist, like production
-npm start
-
-```
+rc-qrcode is released under the MIT license.
