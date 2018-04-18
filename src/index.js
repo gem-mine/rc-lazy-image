@@ -16,24 +16,11 @@ function withLazyimg (config = {}) {
   /**
    * default configurations
    *
-   * animation effect powered by velocity.js and animated.css
-   *
-   * @css_effect: https://github.com/daneden/animate.css
-   * @js_effect: https://github.com/julianshapiro/velocity/blob/master/velocity.ui.js
-   *
-   * transition.slideUpBigIn
-   * transition.flipBounceYIn
-   * transition.swoopIn
-   * transition.whirlIn
-   * transition.expandIn
-   *
    */
 
   const _defaults = {
     threshold: 0,
     event: 'scroll',
-    js_effect: undefined,
-    css_effect: undefined,
     container: window,
     skip_invisible: true,
     parent: undefined,
@@ -266,40 +253,7 @@ function withLazyimg (config = {}) {
         if (settings.load && typeof settings.load === 'function') {
           settings.load.call(this, el, currentImg)
         }
-        // 处理动画
-        let animateEl = el
-        if (settings.css_effect || settings.js_effect) {
-          if (settings.parent) {
-            animateEl = Util.isNumber(settings.parent)
-              ? Util.parentLevel(el, settings.parent)
-              : Util.parents(el, settings.parent)
-          }
-        }
 
-        if (settings.css_effect) {
-          if (!isAnimation) {
-            currentImg.isAnimation = true
-            Util.onAnimatedEnd(animateEl, settings.css_effect)
-          }
-        }
-
-        if (!settings.css_effect && settings.js_effect) {
-          // execute effect animation
-          if (!isAnimation) {
-            currentImg.isAnimation = true
-            window.Velocity(animateEl, settings.js_effect, {
-              duration: 600,
-              complete: el => {
-                // 重置style样式
-                // bug: https://stackoverflow.com/questions/32468352/uncaught-typeerror-cannot-set-property-style-of-htmlelement-which-has-only-a
-                el[0].setAttribute(
-                  'style',
-                  Util.obj2Style(originalProps.style) || ''
-                )
-              }
-            })
-          }
-        }
         // clear up
         !isDetach && detach()
       }
@@ -379,8 +333,6 @@ function withLazyimg (config = {}) {
     config: PropTypes.shape({
       threshold: PropTypes.number,
       event: PropTypes.string,
-      js_effect: PropTypes.string,
-      css_effect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
       container: PropTypes.node,
       skip_invisible: PropTypes.bool,
       parent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -393,8 +345,6 @@ function withLazyimg (config = {}) {
     }),
     threshold: PropTypes.number,
     event: PropTypes.string,
-    js_effect: PropTypes.string,
-    css_effect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     container: PropTypes.node,
     skip_invisible: PropTypes.bool,
     parent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

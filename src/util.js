@@ -38,11 +38,6 @@ export default {
     )
   },
   noop () {},
-  // isPicture
-  // isPicture(node) {
-  //   let regPicture = /^picture$/i;
-  //   return regPicture.test(node.nodeName || '');
-  // },
   // filter props
   filterProps (props) {
     let configKeys = [
@@ -72,13 +67,6 @@ export default {
         }
       }
     })
-    // configKeys.forEach(item=>{
-    //   if(props[item]){
-    //     configProps[item] = props[item];
-    //   } else {
-    //     originalProps[]
-    //   }
-    // });
     return {
       configProps: configProps,
       originalProps: originalProps
@@ -97,11 +85,6 @@ export default {
       return '-' + $1.toLowerCase()
     })
   },
-  // toCamel(str) {
-  //   return str.replace(/(-[a-z])/g, function($1) {
-  //     return $1.toUpperCase().replace('-', '');
-  //   });
-  // },
   // obj2Style
   obj2Style (obj) {
     if (!obj) {
