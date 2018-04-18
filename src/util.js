@@ -50,6 +50,7 @@ export default {
       'appear',
       'force',
       'load',
+      'error',
       'node_type',
       'placeholder',
       'parent',
