@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Util from './util'
-import PropTypes from 'prop-types'
 
 /**
  * withLazyimg
@@ -328,34 +327,6 @@ function withLazyimg (config = {}) {
     }
   }
 
-  // PropTypes
-  Lazyimg.propTypes = {
-    config: PropTypes.shape({
-      threshold: PropTypes.number,
-      event: PropTypes.string,
-      container: PropTypes.node,
-      skip_invisible: PropTypes.bool,
-      parent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      appear: PropTypes.func,
-      force: PropTypes.bool,
-      load: PropTypes.func,
-      error: PropTypes.func,
-      node_type: PropTypes.string,
-      placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    }),
-    threshold: PropTypes.number,
-    event: PropTypes.string,
-    container: PropTypes.node,
-    skip_invisible: PropTypes.bool,
-    parent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    appear: PropTypes.func,
-    force: PropTypes.bool,
-    load: PropTypes.func,
-    error: PropTypes.func,
-    node_type: PropTypes.string,
-    placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    src: PropTypes.string.isRequired
-  }
   // defaultProps
   Lazyimg.defaultProps = {
     config: config
