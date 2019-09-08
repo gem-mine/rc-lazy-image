@@ -12,17 +12,70 @@ import NdLazyimg from '@sdp.nd/nd-lazyimg';
 ReactDOM.render(<NdLazyimg src='xxx.jpg' />, container);
 ```
 
+
+### 基本用法
+
+```jsx
+import NdLazyimg from '@sdp.nd/nd-lazyimg'
+
+const props = {
+  width: 200,
+  height: 200,
+}
+
+class App extends React.Component {
+  
+  render() {
+    return (
+      <div>
+        <NdLazyimg {...props}
+          src='//gcdncs.101.com/v0.1/static/fish/script/swfupload/a801236bjw1ez812gy3g8j20rs0rs0z5.jpg' />
+        <NdLazyimg {...props}
+          src='//gcdncs.101.com/err.jpg' />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
+```
+
+### 事件
+
+```jsx
+import NdLazyimg from '@sdp.nd/nd-lazyimg'
+
+const props = {
+  threshold: 500,
+  appear: () => {
+    console.log('threshold trigger')    
+  }
+};
+
+ReactDOM.render(
+  <div>
+    <NdLazyimg
+      {...props}
+      src={'//gcdncs.101.com/v0.1/static/fish/script/swfupload/a801236bjw1ez812gy3g8j20rs0rs0z5.jpg'}
+    />
+  </div>,
+  mountNode,
+);
+
+```
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| errorImg | 可选参数，占位元素，在图片加载失败后显示 | React.Node 或者 图片地址(支持 base64) | error 占位图 |
-| height | 可选参数，高度 | Number | - |
-| lazy | 可选参数，是否懒加载 | Boolean | true |
-| loadingImg | 可选参数，占位元素，在图片加载完成前显示 | React.Node 或者 图片地址(支持 base64) | loading 占位图 |
-| noBorder | 可选参数，是否没有边框 | Boolean | false |
-| size | 可选参数，图片缩放方式，有三种选择 `length`、`cover`、`contain` (当选择`cover` 或 `contain`时，必须填写 `width` 与 `height`) | String | `length` |
-| src | 必填参数，图片地址 | String | - |
-| threshold | 可选参数，指定距离底部多少距离时触发加载 | Number | 0 |
-| width | 可选参数，宽度 | Number | - |
-| onChange | 可选参数，元素状态(`appear`、`load`、`error`)变化时触发 | Function | 无 |
+| threshold | 指定距离底部多少距离时触发加载 | Number | 0 |
+| event | 指定触发事件，默认为'scroll' | String | `scroll` |
+| container | 指定容器，默认为window | React.Node | `window` |
+| parent | 可以指定动画效果作用于元素的哪个父级元素 | String \| Number | - |
+| appear | 元素出现在可视窗口时触发appear钩子函数 | Function | null |
+| load | 元素图片的加载完后触发load钩子函数 | Function | null |
+| error | 图片加载出错时触发error钩子函数 | Function | null |
+| node_type | 指定生成的节点类型，默认为'img' | String | `img` |
+| placeholder | 占位元素，除了支持普通的图片外，还支持react组件 | String \| React.Node | 默认占位图 |
+
+fork from [react-lazyimg-component](https://github.com/zhansingsong/react-lazyimg-component)

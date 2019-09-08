@@ -128,7 +128,7 @@ function withLazyimg (config = {}) {
           })
         }
         // proxyImg error
-        proxyImg.onerror = error => {
+        proxyImg.onerror = () => {
           // 已加载标识
           currentImg.failed = true
           // 设置状态
@@ -243,8 +243,6 @@ function withLazyimg (config = {}) {
         isDetach,
         loaded,
         failed,
-        originalProps,
-        isAnimation
       } = currentImg
       // 处理回调函数及清除工作
       if (loaded) {
