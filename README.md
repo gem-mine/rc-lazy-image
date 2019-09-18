@@ -1,4 +1,4 @@
-# nd-lazyimg
+# rc-lazy-image
 ---
 
 图片懒加载组件，提供异步加载等相关功能。
@@ -8,7 +8,7 @@
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NdLazyimg from '@sdp.nd/nd-lazyimg';
+import Image from '@gem-mine/rc-lazy-image';
 ReactDOM.render(<NdLazyimg src='xxx.jpg' />, container);
 ```
 
@@ -16,7 +16,7 @@ ReactDOM.render(<NdLazyimg src='xxx.jpg' />, container);
 ### 基本用法
 
 ```jsx
-import NdLazyimg from '@sdp.nd/nd-lazyimg'
+import Image from '@gem-mine/rc-lazy-image'
 
 const props = {
   width: 200,
@@ -28,9 +28,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NdLazyimg {...props}
+        <Image {...props}
           src='//gcdncs.101.com/v0.1/static/fish/script/swfupload/a801236bjw1ez812gy3g8j20rs0rs0z5.jpg' />
-        <NdLazyimg {...props}
+        <Image {...props}
           src='//gcdncs.101.com/err.jpg' />
       </div>
     );
@@ -43,7 +43,7 @@ ReactDOM.render(<App />, mountNode);
 ### 事件
 
 ```jsx
-import NdLazyimg from '@sdp.nd/nd-lazyimg'
+import Image from '@gem-mine/rc-lazy-image'
 
 const props = {
   threshold: 500,
@@ -54,7 +54,7 @@ const props = {
 
 ReactDOM.render(
   <div>
-    <NdLazyimg
+    <Image
       {...props}
       src={'//gcdncs.101.com/v0.1/static/fish/script/swfupload/a801236bjw1ez812gy3g8j20rs0rs0z5.jpg'}
     />

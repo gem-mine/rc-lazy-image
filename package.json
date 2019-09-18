@@ -1,7 +1,7 @@
 {
-  "name": "@sdp.nd/nd-lazyimg",
+  "name": "@gem-mine/rc-lazy-image",
   "version": "0.1.0",
-  "description": "nd-lazyimg",
+  "description": "rc-lazy-image",
   "keywords": [
     "react",
     "react-lazyimg",
