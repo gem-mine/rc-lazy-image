@@ -9,7 +9,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Image from '@gem-mine/rc-lazy-image';
-ReactDOM.render(<NdLazyimg src='xxx.jpg' />, container);
+ReactDOM.render(<Image src='xxx.jpg' />, container);
 ```
 
 
