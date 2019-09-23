@@ -57,6 +57,6 @@
     "site": "md-tools build",
     "build": "npm run clean && npm run babel",
     "clean": "shx rm -rf lib site && shx echo clean Done",
-    "pub": "npm run build && npm publish"
+    "pub": "npm run build && npm publish --access public"
   }
 }
