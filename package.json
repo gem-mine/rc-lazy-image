@@ -1,6 +1,6 @@
 {
   "name": "@gem-mine/rc-lazy-image",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "rc-lazy-image",
   "keywords": [
     "react",
@@ -13,6 +13,7 @@
   "files": [
     "lib"
   ],
+  "main": "lib/index.js",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
